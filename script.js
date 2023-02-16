@@ -14,8 +14,11 @@ function displayHeart(e) {
 
 function arrow (e) {
   console.log('hello from arrow');
-  let clicked  = `left:${e.offsetX}px;top:${e.offsetY}px`;
-  console.log('clicked:', clicked);
+  let clicked  = `left:${e.clientX - 58}px;top:${e.clientY}px`;
+  console.log('clicked:', e.clientX, e.clientY);
+  const xVar = e.clientX - 200
+  const YVar = e.clientY - 50
+  console.log('clicked:', xVar, YVar);
   const shootArrow = [
     // from
     {
@@ -25,8 +28,8 @@ function arrow (e) {
     },
     // to
     {
-      top: `${e.clientY} - 50px`,
-      left: `${e.clientX} - 50px`,
+      top: xVar,
+      left: YVar,
     }
   ]
   const arrowImage = document.createElement('img');
@@ -35,4 +38,5 @@ function arrow (e) {
   arrowImage.style = clicked;
   arrowImage.animate(shootArrow, 3000);
   document.body.appendChild(arrowImage);
+  displayHeart(e)
 }
