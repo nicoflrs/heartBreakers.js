@@ -6,7 +6,22 @@ window.addEventListener("click", arrow);
 
 function displayHeart(e) {
   const newHeartImage = document.createElement('img');
-  newHeartImage.src = chrome.runtime.getURL("assets/valentinesCandyHeartsTwo.png");
+  const heartArray = [
+    "assets/valentinesCandyHeartsOne.png",
+    "assets/valentinesCandyHeartsTwo.png",
+    "assets/valentinesCandyHeartsThree.png",
+    "assets/valentinesCandyHeartsFour.png",
+    "assets/valentinesCandyHeartsFive.png",
+    "assets/valentinesCandyHeartsSix.png",
+    "assets/valentinesCandyHeartsSeven.png",
+    "assets/valentinesCandyHeartsEight.png",
+    "assets/valentinesCandyHeartsNine.png",
+    "assets/valentinesCandyHeartsTen.png",
+    "assets/valentinesCandyHeartsEleven.png",
+    "assets/valentinesCandyHeartsTwelve.png",
+  ];
+  const heartPath = heartArray[Math.floor(Math.random()*heartArray.length)];
+  newHeartImage.src = chrome.runtime.getURL(heartPath);
   newHeartImage.className = 'heart'
   newHeartImage.style = `left:${e.clientX}px;top:${e.clientY}px`
   document.body.appendChild(newHeartImage);
@@ -36,7 +51,7 @@ function arrow (e) {
   arrowImage.setAttribute('class', 'arrowImage');
   arrowImage.src = chrome.runtime.getURL('assets/arrow.png');
   arrowImage.style = clicked;
-  arrowImage.animate(shootArrow, 3000);
+  arrowImage.animate(shootArrow, 1000);
   document.body.appendChild(arrowImage);
   displayHeart(e)
 }
