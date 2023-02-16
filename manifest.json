@@ -7,6 +7,10 @@
     "default_popup": "index.html",
     "default_icon": "./assets/icon.png"
   },
+  "permissions" : [
+    "activeTab",
+    "scripting"
+  ],
   "content_scripts": [
     {
       "js": ["script.js"],
