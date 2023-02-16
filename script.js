@@ -4,6 +4,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 const button = document.createElement('button');
 button.setAttribute('name', 'test button');
+button.innerText = "Test Button";
 document.body.appendChild(button);
 
 
