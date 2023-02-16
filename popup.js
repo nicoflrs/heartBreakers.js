@@ -3,27 +3,26 @@ window.addEventListener("DOMContentLoaded", (event) => {
 });
 
 const button = document.createElement("button");
-button.setAttribute("name", "test button");
-button.innerText = "Test Button";
+button.setAttribute("name", "Clear");
+button.innerText = "Clear";
 document.body.appendChild(button);
 
-async function getTabId () {
-  let queryOptions = { active: true, lastFocusedWindow: true };
-  // `tab` will either be a `tabs.Tab` instance or `undefined`.
-  let [tab] = await chrome.tabs.query(queryOptions);
-  console.log('tab:', tab);
-  return tab;
-}
-
-const invokedFunc = () => {
-    console.log('chrome: ', chrome)
-    chrome.scripting.executeScript({
-      target: { tabId: getTabId() },
-      files: ["script.js"],
-    })
-    .then(() => console.log('script injected'));
+const getTabId = async () => {
+  let queryOptions = { active: true, currentWindow: true };
+  let tabs = await chrome.tabs.query(queryOptions);
+  return tabs[0].id;
 };
 
-button.addEventListener(
-  "click", invokedFunc
-);
+const chromeScripting = (id) =>
+  chrome.scripting
+    .executeScript({
+      target: { tabId: id },
+      files: ["clear.js"],
+    })
+
+const clear = async (e) => {
+  const tabId = await getTabId();
+  chromeScripting(tabId)
+};
+
+button.addEventListener("click", clear);
