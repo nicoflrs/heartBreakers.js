@@ -10,5 +10,6 @@ function displayHeart(e) {
   console.log(e)
   const newHeartImage = document.createElement('img');
   newHeartImage.src = chrome.runtime.getURL("assets/valentinesCandyHeartsTwo.png");
+  newHeartImage.style = `left:${e.offsetX}px;top:${e.offsetY}px`
   document.body.appendChild(newHeartImage);
 }
