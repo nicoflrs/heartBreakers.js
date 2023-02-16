@@ -4,4 +4,21 @@ img {
     width: 100px;
     height: 100px;
   }
-  
+
+  .arrowImage {
+    animation-duration: 3s;
+    animation-name: shootArrow;
+  }
+
+  @keyframes shootArrow {
+    from {
+      top: 0;
+      left: 0;
+    }
+
+    to {
+      top: 100px;
+      left: 100px;
+    }
+  }
+
