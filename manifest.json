@@ -16,5 +16,10 @@
       "js": ["script.js"],
       "matches": ["<all_urls>"]
     }
-  ]
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [ "assets/*.png" ],
+      "matches": [ "<all_urls>" ]
+    }]
 }
