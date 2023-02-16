@@ -22,7 +22,7 @@ const chromeScripting = (id) =>
 
 const clear = async (e) => {
   const tabId = await getTabId();
-  chromeScripting(tabId)
+  chromeScripting(tabId);
 };
 
 button.addEventListener("click", clear);

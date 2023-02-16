@@ -5,9 +5,9 @@ function clearTags (hearts, arrowImages) {
   };
   
   for (let i = 0; i < arrowImages.length; i++) {
-      arrowImages[i].parentNode.removeChild(arrowImages[i])
+      arrowImages[i].parentNode.removeChild(arrowImages[i]);
       i--;
   };
-}
+};
 
-clearTags(document.getElementsByClassName('heart'), document.getElementsByClassName('arrowImage'))
+clearTags(document.getElementsByClassName('heart'), document.getElementsByClassName('arrowImage'));
