@@ -5,6 +5,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 const clearButton = document.createElement("button");
 clearButton.setAttribute("name", "Clear");
 clearButton.innerText = "Clear";
+clearButton.className='clearButton'
 document.body.appendChild(clearButton);
 
 const off = document.createElement("button");
