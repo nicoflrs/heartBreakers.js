@@ -6,7 +6,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 window.addEventListener("click", displayHeart);
 
-function displayHeart() {
+function displayHeart(e) {
+  console.log(e)
   const newHeartImage = document.createElement('img');
   newHeartImage.src = 'assets/valentinesCandyHeartsTwo.png'
   document.body.appendChild(newHeartImage);

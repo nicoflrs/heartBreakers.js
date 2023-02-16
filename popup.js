@@ -7,12 +7,6 @@ button.setAttribute("name", "test button");
 button.innerText = "Test Button";
 document.body.appendChild(button);
 
-// const getTabId = () => {
-//   console.log('window:', window);
-//   return window.tabId;
-// };
-
-
 async function getTabId () {
   let queryOptions = { active: true, lastFocusedWindow: true };
   // `tab` will either be a `tabs.Tab` instance or `undefined`.
