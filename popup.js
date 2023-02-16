@@ -2,10 +2,15 @@ window.addEventListener("DOMContentLoaded", (event) => {
   console.log("DOM fully loaded and parsed");
 });
 
-const button = document.createElement("button");
-button.setAttribute("name", "Clear");
-button.innerText = "Clear";
-document.body.appendChild(button);
+const clearButton = document.createElement("button");
+clearButton.setAttribute("name", "Clear");
+clearButton.innerText = "Clear";
+document.body.appendChild(clearButton);
+
+const off = document.createElement("button");
+off.setAttribute("name", "off");
+off.innerText = "Off";
+document.body.appendChild(off);
 
 const getTabId = async () => {
   let queryOptions = { active: true, currentWindow: true };
@@ -13,16 +18,25 @@ const getTabId = async () => {
   return tabs[0].id;
 };
 
-const chromeScripting = (id) =>
+const chromeScripting = (id, file) =>
   chrome.scripting
     .executeScript({
       target: { tabId: id },
-      files: ["clear.js"],
+      files: [file],
     })
 
 const clear = async (e) => {
   const tabId = await getTabId();
-  chromeScripting(tabId);
+  await chromeScripting(tabId, "clear.js");
+  if (e.target.name === 'off') {
+    var id = chrome.runtime.id;
+    chrome.management.get(id, async function (ex) {
+      if (ex.enabled) {
+        await chrome.management.setEnabled(id, false);
+      };
+    });
+  }
 };
 
-button.addEventListener("click", clear);
+clearButton.addEventListener("click", clear);
+off.addEventListener("click", clear);
