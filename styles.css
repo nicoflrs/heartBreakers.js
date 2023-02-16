@@ -5,25 +5,26 @@
     height: 100px;
   }
 
-  .arrowImage {
+.arrowImage {
+  position: fixed;
+  display: block;
+  width: 100px;
+  height: 100px;
+  animation-duration: 3s;
+  animation-name: shootArrow;
+  z-index: 1000000;
+}
+
+/* @keyframes shootArrow {
+  from {
     position: fixed;
-    display: block;
-    width: 100px;
-    height: 100px;
-    animation-duration: 3s;
-    animation-name: shootArrow;
+    top: 0;
+    left: 0;
   }
 
-  @keyframes shootArrow {
-    from {
-      position: fixed;
-      top: 0;
-      left: 0;
-    }
-
-    to {
-      top: 100px;
-      left: 100px;
-    }
+  to {
+    top: 100px;
+    left: 100px;
   }
+} */
 
