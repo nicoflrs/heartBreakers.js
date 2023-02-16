@@ -6,11 +6,10 @@ window.addEventListener("click", arrow);
 
 
 function displayHeart(e) {
-  let clicked  = `left:${e.offsetX}px;top:${e.offsetY}px`;
-  console.log(e)
   const newHeartImage = document.createElement('img');
   newHeartImage.src = chrome.runtime.getURL("assets/valentinesCandyHeartsTwo.png");
-  newHeartImage.style = `left:${e.offsetX}px;top:${e.offsetY}px`;
+  newHeartImage.className = 'heart'
+  newHeartImage.style = `left:${e.clientX}px;top:${e.clientY}px`
   document.body.appendChild(newHeartImage);
 };
 
