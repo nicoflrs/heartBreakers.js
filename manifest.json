@@ -6,5 +6,11 @@
   "action": {
     "default_popup": "index.html",
     "default_icon": "./assets/icon.png"
-  }
+  },
+  "content_scripts": [
+    {
+      "js": ["script.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
