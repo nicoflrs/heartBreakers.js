@@ -6,12 +6,17 @@
   }
 
   .arrowImage {
+    position: fixed;
+    display: block;
+    width: 100px;
+    height: 100px;
     animation-duration: 3s;
     animation-name: shootArrow;
   }
 
   @keyframes shootArrow {
     from {
+      position: fixed;
       top: 0;
       left: 0;
     }
