@@ -5,6 +5,25 @@
   "version": "1.0",
   "action": {
     "default_popup": "index.html",
-    "default_icon": "./assets/valentinesCandyHeartsOne.png"
-  }
+    "default_icon": "./assets/icon.png"
+  },
+  "permissions" : [
+    "activeTab",
+    "scripting",
+    "tabs",
+    "<all_urls>",
+    "management"
+  ],
+  "content_scripts": [
+    {
+      "js": ["script.js"],
+      "css": ["styles.css"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [ "assets/*.png" ],
+      "matches": [ "<all_urls>" ]
+    }]
 }

@@ -1,0 +1,19 @@
+
+.heart {
+    position: fixed;
+    display: block;
+    width: 100px;
+    height: 100px;
+    z-index: 999999;
+  }
+
+.arrowImage {
+  position: fixed;
+  display: block;
+  width: 100px;
+  height: 100px;
+  animation-duration: 3s;
+  animation-name: shootArrow;
+  z-index: 1000000;
+}
+
